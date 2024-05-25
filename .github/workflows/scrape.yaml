@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: "0 20 * * *"  # 📅 Scrape once a day at 8PM, see crontab.guru for help
+    - cron: "0 20 * * *" # 📅 Scrape once a day at 8PM, see crontab.guru for help
 
 name: Scrape Update 🔄
 jobs:
@@ -44,6 +44,7 @@ jobs:
         run: |
           touch Pipfile
           pipenv install --deploy --dev
+          pip install requests
 
       - name: 🕵️‍♂️ Scrape content and output
         run: |
